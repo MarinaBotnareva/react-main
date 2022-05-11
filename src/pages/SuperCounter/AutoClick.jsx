@@ -22,9 +22,7 @@ class AutoClick extends Component {
   
   timer = () => {
   
-   if (this.timerID === undefined || this.timerID === null){
-    setTimeout(()=>{clearInterval(this.timerID);
-      this.timerID = null;}, 31000);  
+   if (this.timerID === undefined || this.timerID === null){ 
     this.props.isIncrease ? 
       this.timerID = setInterval(
         () => this.plus(),
@@ -33,6 +31,11 @@ class AutoClick extends Component {
      () => this.minus(),
      1000
    )  
+   setTimeout(()=>{clearInterval(this.timerID);
+    this.timerID = null; this.props.changeState((state) => ({
+      ...state,
+      interval: 0,
+    }))}, 30000); 
   }
     else {
       clearInterval(this.timerID);

@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, lazy } from 'react';
 import { BrowserRouter, Link, Switch, Route, Redirect } from 'react-router-dom';
-
+import { Suspense } from 'react';
 import PrivateRoute from './component/PrivateRoute';
 import HomePage from './pages/Home';
-import LoginPage from './pages/Login';
 import ProfilePage from './pages/Profile';
 import DocsPage from './pages/DocsPage';
 import './App.scss';
 import Calculator from './pages/Calculator';
-import SuperCounter from './pages/SuperCounter';
+
+const LoginPage = lazy(()=> import('./pages/Login'))
+const SuperCounter = lazy(()=> import('./pages/SuperCounter')) 
 
 class App extends Component {
 
@@ -48,6 +49,7 @@ class App extends Component {
           </nav>
         </header>
 
+          <Suspense fallback={<div style={{color: 'red'}}>Загрузка</div>}>
         <main>
           <Switch>
               <Route exact path="/" component={HomePage} />
@@ -81,7 +83,7 @@ class App extends Component {
               </Route>
           </Switch>
         </main>
-
+        </Suspense>
       </BrowserRouter>
     );
   }

@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function Step (props) {
 
@@ -24,5 +26,12 @@ function Step (props) {
       </div>
     )
   }
+
+
+
+  Step.defaultProps = {
+    step: 1,
+    changeState: () => {},
+  } 
 
 export default Step
