@@ -8,6 +8,7 @@ import ProfilePage from './pages/Profile';
 import DocsPage from './pages/DocsPage';
 import './App.scss';
 import Calculator from './pages/Calculator';
+import SuperCounter from './pages/SuperCounter';
 
 class App extends Component {
 
@@ -40,6 +41,9 @@ class App extends Component {
               <li>
                 <Link to="/calc">Calculator</Link>
               </li>
+              <li>
+                <Link to="/supercount">SuperCounter</Link>
+              </li>
             </ul>
           </nav>
         </header>
@@ -54,9 +58,14 @@ class App extends Component {
                   }}
               </Route>
 
+              <Route exact path="/supercount">
+                <SuperCounter />
+              </Route>
+
               <Route exact path="/calc">
                 <Calculator scale="km" />
               </Route>
+
 
               <Route exact path="/login">
                 <LoginPage />
