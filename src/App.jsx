@@ -7,6 +7,10 @@ import ProfilePage from './pages/Profile';
 import DocsPage from './pages/DocsPage';
 import './App.scss';
 import Calculator from './pages/Calculator';
+import UserLoader from './pages/UserLoader.jsx';
+import SliderHooks from './pages/SliderHooks';
+import StopWatch from './pages/StopWatch';
+import ToDoList from './pages/ToDoList';
 
 const LoginPage = lazy(()=> import('./pages/Login'))
 const SuperCounter = lazy(()=> import('./pages/SuperCounter')) 
@@ -40,10 +44,22 @@ class App extends Component {
                   )}
               </li>
               <li>
+                <Link to="/users">Users</Link>
+              </li>
+              <li>
                 <Link to="/calc">Calculator</Link>
               </li>
               <li>
                 <Link to="/supercount">SuperCounter</Link>
+              </li>
+              <li>
+                <Link to="/slider">Slider</Link>
+              </li>
+              <li>
+                <Link to="/stopWatch">Stop Watch</Link>
+              </li>
+              <li>
+                <Link to="/todoList">ToDo List</Link>
               </li>
             </ul>
           </nav>
@@ -60,6 +76,18 @@ class App extends Component {
                   }}
               </Route>
 
+              <Route exact path="/todoList">
+                <ToDoList />
+              </Route>
+
+              <Route exact path="/stopWatch">
+                <StopWatch />
+              </Route>
+
+              <Route exact path="/slider">
+                <SliderHooks />
+              </Route>
+
               <Route exact path="/supercount">
                 <SuperCounter />
               </Route>
@@ -71,6 +99,10 @@ class App extends Component {
 
               <Route exact path="/login">
                 <LoginPage />
+              </Route>
+
+              <Route exact path="/users">
+                <UserLoader />
               </Route>
 
               <PrivateRoute
