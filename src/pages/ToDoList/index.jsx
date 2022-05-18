@@ -8,8 +8,7 @@ function ToDoList (){
     if(userInput) {
       const newItem = {
         id: Math.random().toString(36).substring(2, 9),
-        text: userInput,
-        complete: false 
+        text: userInput
       }
       setTasksArr([...tasksArr, newItem])
     }
@@ -41,6 +40,7 @@ function ToDoList (){
     // e.target.value === { target: {value}}
     setTodoValue(value);
   }
+
   
   return (
     <div className='todo'>
